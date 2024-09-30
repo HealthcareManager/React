@@ -1,0 +1,84 @@
+/* 主容器 */
+.homeContainer {
+    background-color: #fff9e6; /* 使用#FCDA71的相關色調 */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header區域 */
+.header {
+    background-color: #FCDA71; /* Header背景顏色 */
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+    color: #333; /* 主標題顏色 */
+    font-size: 2rem;
+    margin: 0;
+}
+
+.navList {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+    display: flex;
+    justify-content: center;
+}
+
+.navList li {
+    margin: 0 15px;
+}
+
+.navList a {
+    color: #333;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.navList a:hover {
+    color: #fc9a21; /* Hover時的效果 */
+    text-decoration: underline;
+}
+
+/* 主內容 */
+.bodyDiv {
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.loading {
+    font-size: 1.5rem;
+    color: #FCDA71;
+    text-align: center;
+}
+
+/* 手機端適配 */
+@media (max-width: 600px) {
+    .navList {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navList li {
+        margin: 10px 0;
+    }
+
+    .bodyDiv {
+        padding: 15px;
+    }
+}
+
+
+
+

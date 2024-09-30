@@ -1,0 +1,97 @@
+.userDataContainer {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.basicInfo,
+.habits,
+.healthChecks {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+/* 加入 #FCDA71 的色調 */
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+    border-bottom: 2px solid #FCDA71;
+    padding-bottom: 5px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: #555;
+}
+
+/* 表格的樣式調整 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    table-layout: fixed; /* 固定表格布局 */
+    word-wrap: break-word; /* 避免表格內容溢出 */
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+    overflow: hidden;
+}
+
+th {
+    background-color: #FCDA71;
+    color: #333;
+}
+
+td {
+    color: #666;
+}
+
+td:hover {
+    background-color: #f9f9f9;
+}
+
+/* 手機響應式調整 */
+@media (max-width: 600px) {
+    .userDataContainer {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    ul li {
+        font-size: 0.9rem;
+    }
+
+    th, td {
+        font-size: 0.9rem;
+    }
+
+    /* 讓表格在小螢幕上橫向滾動 */
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+
+
+

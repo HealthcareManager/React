@@ -1,0 +1,65 @@
+.userList {
+    padding: 20px;
+    background-color: #fffbe6; /* 使用淺色背景，接近 #FCDA71 */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.userTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+.userTable th, .userTable td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    font-size: 1rem;
+}
+
+.userTable th {
+    background-color: #FCDA71; /* 使用主要色調 #FCDA71 */
+    color: #333;
+    font-weight: bold;
+}
+
+.userTable tr {
+    transition: background-color 0.3s ease;
+}
+
+.userTable tr:hover {
+    background-color: #ffe082; /* 懸停時的顏色變得稍深 */
+    cursor: pointer;
+}
+
+.userTable td {
+    color: #555;
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: #FCDA71; /* 標題使用主要色調 #FCDA71 */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .userList {
+        padding: 10px;
+    }
+
+    .userTable th, .userTable td {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+}
+
+
