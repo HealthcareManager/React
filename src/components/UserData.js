@@ -6,6 +6,7 @@ function UserData({ userId }) {
     const [userData, setUserData] = useState(null);
     const [userHabits, setUserHabits] = useState(null);
     const [healthChecks, setHealthChecks] = useState([]);
+    const [exercises, setExercises] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -22,8 +23,9 @@ function UserData({ userId }) {
                 });
                 const data = response.data;
                 setUserData(data[0]);  // 假設第一個是 userData
-                setUserHabits(data[1]);  // 假設第二個是 userHabits
-                setHealthChecks(data[2]); // 假設第三個是 healthChecks
+                setUserHabits(data[1] || []);  // 假設第二個是 userHabits
+                setExercises(data[2] || []); // 假設第三個是 exercises
+                setHealthChecks(data[3] || []); // 假設第四個是 healthChecks
             } catch (error) {
                 alert('Error fetching user data: ' + (error.response ? error.response.data : error.message));
             } finally {
@@ -37,7 +39,7 @@ function UserData({ userId }) {
     }, [userId]);
 
     if (loading) {
-        return <div>Loading...</div>;
+        return <div><h1>Loading...</h1></div>;
     }
 
     return (
@@ -45,7 +47,7 @@ function UserData({ userId }) {
             {/* Basic Information Section */}
             <div className={styles.basicInfo}>
                 <h2>基本資料</h2>
-                {userData && (
+                {userData ? (
                     <ul>
                         <li>ID: {userData.id}</li>
                         <li>Username: {userData.username}</li>
@@ -58,18 +60,53 @@ function UserData({ userId }) {
                         <li>Role: {userData.role}</li>
                         <li>Account Locked: {userData.accountLocked ? '是' : '否'}</li>
                     </ul>
+                ) : (
+                    <p>沒有基本資料記錄</p>
                 )}
             </div>
 
             {/* Habits Section */}
             <div className={styles.habits}>
                 <h2>習慣</h2>
-                {userHabits && (
+                {userHabits ? (
                     <ul>
                         <li>Alcohol: {userHabits.alcohol ? '是' : '否'}</li>
                         <li>Cigarette: {userHabits.cigarette ? '是' : '否'}</li>
                         <li>Areca: {userHabits.areca ? '是' : '否'}</li>
                     </ul>
+                ) : (
+                    <p>沒有習慣記錄</p>
+                )}
+            </div>
+
+            {/* Exercise Section */}
+            <div className={styles.exercises}>
+                <h2>運動記錄</h2>
+                {exercises.length > 0 ? (
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>運動類型</th>
+                                <th>時長</th>
+                                <th>燃燒的卡路里</th>
+                                <th>公里數</th>
+                                <th>日期</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {exercises.map((exercise) => (
+                                <tr key={exercise.id}>
+                                    <td>{exercise.exerciseType}</td>
+                                    <td>{exercise.duration} 分鐘</td>
+                                    <td>{exercise.caloriesBurned} 卡路里</td>
+                                    <td>{exercise.kilometers} 公里</td>
+                                    <td>{exercise.createdAt}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                ) : (
+                    <p>沒有運動記錄</p>
                 )}
             </div>
 
@@ -85,8 +122,6 @@ function UserData({ userId }) {
                                 <th>血壓</th>
                                 <th>血糖</th>
                                 <th>血氧</th>
-                                <th>燃燒的卡路里</th>
-                                <th>睡眠時長</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -97,8 +132,6 @@ function UserData({ userId }) {
                                     <td>{check.bloodPressure}</td>
                                     <td>{check.bloodSugar}</td>
                                     <td>{check.bloodOxygen}</td>
-                                    <td>{check.caloriesBurned}</td>
-                                    <td>{check.sleepDuration} 小時</td>
                                 </tr>
                             ))}
                         </tbody>
@@ -112,6 +145,7 @@ function UserData({ userId }) {
 }
 
 export default UserData;
+
 
 
 
