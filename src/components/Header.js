@@ -26,7 +26,6 @@ const Header = () => {
             <div className={styles.header}>
             <ul className={styles.navList}>
                 <li><a href="/Home">用戶管理</a></li>
-                <li><a href="/news">分析</a></li>
             </ul>
         </div>
             <div className={styles['user-actions']}>
